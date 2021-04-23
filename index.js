@@ -1,27 +1,27 @@
-function map(src, cb) {
-  let r = []
+function map(src, callBack) {
+  const r = [];
 
   for (let i = 0; i < src.length; i++) {
-    let theElement = src[i]
-    r.push(cb(theElement))
+    const theElement = src[i];
+    r.push(callBack(theElement));
   }
 
   return r;
 }
 
-function reduce(src, cb, startingValue) {
-  let total 
+function reduce(src, callBack, startingValue) {
+  let total;
   if (startingValue) {
-    total = startingValue
+    total = startingValue;
     for (let i = 0; i < src.length; i++) {
-      total = cb(src[i], total)
+      total = callBack(src[i], total);
     }
-    return total
+    return total;
   } else {
-    total = src[0]
+    total = src[0];
     for (let i = 1; i < src.length; i++) {
-      total = cb(src[i], total)
+      total = callBack(src[i], total);
     }
-    return total
+    return total;
   }
 }
